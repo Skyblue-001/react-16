@@ -1,6 +1,13 @@
 import React, { Component, Fragment } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { createPortal } from "react-dom";
+
+const Message = () => "Just touched it!";
+
+class Portals extends Component{
+  render(){
+    return createPortal(<Message />, document.getElementById("touchMe"));
+  }
+}
 
 class FragmentReturn extends Component{
   render(){
@@ -26,6 +33,7 @@ class App extends Component {
       <Fragment>
         <FragmentReturn />
         <StringReturnType />
+        <Portals />
       </Fragment>
     );
   }
